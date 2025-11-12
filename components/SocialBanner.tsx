@@ -58,15 +58,13 @@ export default function SocialBanner() {
               object-contain mb-[0.5%]
             "
           />
-          <span
-            className={`
+          <span className={`
               ${UIMainFont.className}
               italic text-white
               text-[clamp(1.2em,2.5vw,2em)]
-              mr-[clamp(0.5em,2vw,1em)]
-            `}
+              mr-[clamp(0.5em,2vw,1em)]`}
           >
-            Follow George Angelopoulos Creative
+          Follow George Angelopoulos Creative
           </span>
         </>
       )}
@@ -92,8 +90,8 @@ export default function SocialBanner() {
             src={social.img}
             alt={social.alt}
             className="
-              w-[clamp(2em,3.5vw,3.2em)]
-              w-[clamp(2em,3.5vw,3.2em)]
+              w-[clamp(2em,3.0vw,3.2em)]
+              w-[clamp(2em,3.0vw,3.2em)]
               object-contain
             "
           />

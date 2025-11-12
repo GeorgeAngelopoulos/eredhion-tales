@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/app/globals.css";
 import MainBanner from "@/components/MainBanner";
 import SocialBanner from "@/components/SocialBanner";
 
