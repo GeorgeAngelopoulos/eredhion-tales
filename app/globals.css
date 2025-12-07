@@ -26,6 +26,7 @@ body {
 }
 
 /* Category-specific colors */
+.category-everything{ background-color: rgb(0, 0, 0); }
 .category-world     { background-color: rgb(156, 95, 44); }
 .category-nation    { background-color: rgb(125, 208, 233); }
 .category-faction   { background-color: rgb(199, 82, 82); }
@@ -52,5 +53,117 @@ body {
 .common:hover { box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8); }
 .rare:hover   { box-shadow: 0 0 10px 3px rgba(54, 141, 223, 0.8); }
 .unique:hover { box-shadow: 0 0 10px 3px rgba(255, 111, 28, 0.8); }
+
+
+
+
+@layer utilities {
+
+  /* Base stripe for any pressed button */
+  .explore-button.pressed::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    border-radius: 0px;
+    box-shadow: inset 0 -2px 4px rgba(59, 59, 59, 0.4);
+    opacity: 0;
+    transform: translateY(6px);
+    animation: stripeFadeIn 0.6s ease forwards;
+  }
+
+  /* Apply the category background color to the stripe */
+  .explore-button.pressed.filter-everything::after{ background-color: rgb(0, 0, 0); }
+  .explore-button.pressed.filter-world::after     { background-color: rgb(156, 95, 44); }
+  .explore-button.pressed.filter-nation::after    { background-color: rgb(125, 208, 233); }
+  .explore-button.pressed.filter-faction::after   { background-color: rgb(199, 82, 82); }
+  .explore-button.pressed.filter-region::after    { background-color: rgb(64, 148, 85); }
+  .explore-button.pressed.filter-US::after        { background-color: rgb(164, 144, 172); }
+  .explore-button.pressed.filter-race::after      { background-color: rgb(137, 94, 192); }
+  .explore-button.pressed.filter-tradition::after { background-color: rgb(224, 208, 64); }
+  .explore-button.pressed.filter-short::after     { background-color: rgb(241, 241, 241); }
+  .explore-button.pressed.filter-item::after      { background-color: rgb(224, 167, 42); }
+  .explore-button.pressed.filter-creature::after  { background-color: rgb(184, 34, 210); }
+  .explore-button.pressed.filter-character::after { background-color: rgb(0, 92, 153); }
+
+  @keyframes stripeFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation for appearing cards */
+  @keyframes slideInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 100;
+      transform: translateX(0);
+    }
+  }
+
+@keyframes goldGlow {
+  0% {
+    color: #d4af37;
+    text-shadow:
+      0 0 4px #d4af37,
+      0 0 8px #d4af37,
+      0 0 12px #c9971a;
+  }
+  25% {
+    color: #ffe28a;
+    text-shadow:
+      0 0 6px #ffd700,
+      0 0 14px #ffcc00,
+      0 0 20px #ffb300;
+  }
+  40% {
+    color: #fff7c8;
+    text-shadow:
+      0 0 10px #fff2a8,
+      0 0 20px #ffd86b,
+      0 0 30px #ffcc00;
+  }
+  70% {
+    color: #fce59e;
+    text-shadow:
+      0 0 8px #ffd86b,
+      0 0 18px #ffcc00,
+      0 0 26px #ffb300;
+  }
+  100% {
+    color: #d4af37;
+    text-shadow:
+      0 0 4px #d4af37,
+      0 0 8px #d4af37,
+      0 0 12px #c9971a;
+  }
+}
+
+  .card.hidden {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+    display: none;
+  }
+
+  .card.show {
+    animation: slideInFromRight 0.5s ease forwards;
+  }
+
+  .gold-glow {
+  animation: goldGlow 3.75s infinite ease-in-out;
+  }
+
+}
 
 

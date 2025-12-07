@@ -9,7 +9,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MainBanner />
         {/* Page content */}
         <div className="flex-grow">{children}</div>
-
         {/* Footer social banner */}
         <SocialBanner />
       </body>

@@ -1,0 +1,84 @@
+{
+  "versionName": "Eclipse",
+  "versionNumber": "v26.0.0",
+  "versionLog": [
+    {
+      "article": "Sunphire Medallion",
+      "changes": ["NEW", "LORE", "REL", "REV", "LINK"]
+    },
+    {
+      "article": "Kingdom of the Eclipse: Part I",
+      "changes": ["NEW", "REL", "REV", "LINK"]
+    },
+    {
+      "article": "Kingdom of the Eclipse: Part I",
+      "changes": ["NEW", "LINK"]
+    }
+
+  ],
+
+  "articles": [
+    {
+      "title": "Kingdom of the Eclipse: Part I",
+      "subtitle": "Nal'ered XII - Ser'aina",
+      "date": "2/5/2025",
+      "category": "short",
+      "label": "Short Story",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    },
+    {
+      "title": "Sunphire Medallion",
+      "subtitle": "",
+      "date": "2/5/2025",
+      "category": "world",
+      "label": "World",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    },
+    {
+      "title": "Sunphire Medallion",
+      "subtitle": "",
+      "date": "2/5/2025",
+      "category": "short",
+      "label": "Short Story",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    },
+    {
+      "title": "Sunphire Medallion",
+      "subtitle": "",
+      "date": "2/5/2025",
+      "category": "region",
+      "label": "Region",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    },
+    {
+      "title": "Sunphire Medallion",
+      "subtitle": "",
+      "date": "2/5/2025",
+      "category": "US",
+      "label": "Structure",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    },
+    {
+      "title": "Sunphire Medallion",
+      "subtitle": "",
+      "date": "2/5/2025",
+      "category": "character",
+      "label": "Character",
+      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
+      "slug": "kingdom-of-the-eclipse-part-1",
+      "component": "KingdomOfTheEclipsePart1"
+    }
+
+  ]
+}

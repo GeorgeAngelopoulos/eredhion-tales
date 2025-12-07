@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import React, { useEffect, useState } from "react";
 import { UIMainFont } from "@/app/fonts";
 import { TalesFont } from "@/app/fonts";
+import Link from "next/link";
 
 type ExploreProps = {
     title?:           string;
@@ -11,10 +12,10 @@ type ExploreProps = {
     category?:        string;
     label?:           string;
     backgroundPath?:  string;
-    articlePath?:     string;
+    slug?:            string;
 }
 
-export default function ExploreCard({ title, subtitle, date, category, label, backgroundPath, articlePath }: ExploreProps) {
+export default function ExploreCard({ title, subtitle, date, category, label, backgroundPath, slug }: ExploreProps) {
 
     let rarity = "";
     if (label?.includes("Common")) rarity = "common";
@@ -22,39 +23,33 @@ export default function ExploreCard({ title, subtitle, date, category, label, ba
     else if (label?.includes("Unique")) rarity = "unique";
 
     return (
-        <a
-        href = {articlePath}
+        <Link href={`/article/${slug}`}
         className={`
-            card flex flex-col justify-between items-start relative     
+            card card-${category}
+            flex flex-col justify-between items-start relative     
             border-2 border-black bg-[rgba(255,255,255,0.2)] 
             w-[300px] 
             h-[clamp(325px,80vw,400px)] 
             m-[15px] p-[5px] 
             shadow-[0_4px_8px_rgba(0,0,0,0.1)]                
             filter drop-shadow-[0_0_25px_rgba(0,0,0,0.6)]
+            hover:scale-[1.04]
+            transition-transform
+            duration-200
+            
             overflow-hidden transition-opacity duration-[900ms] ease-in-out opacity-100
-            hover:opacity-90 cursor-pointer ${rarity}`}
+            cursor-pointer ${rarity}`}
         style={{
             backgroundImage: `url(${backgroundPath})`,
             backgroundSize: "cover",
             backgroundPosition: "center",}}
         >
-
-        <div
-        className="
-            absolute inset-0 
-            bg-center bg-cover bg-no-repeat 
-            opacity-0 pointer-events-none
-            transition-opacity duration-[900ms] ease-in-out z-[1] 
-            hover:opacity-100"
-        style={{ backgroundImage: 'url("/page_images/et_card_shadow.png")' }}
-        /> 
            
         <CardCategory category={category} label={label}/>
         <CardDate date = {date}/>
         <CardTitle title = {title}/>
         <CardSubtitle subtitle = {subtitle}/>
-        </a>
+        </Link>
     );
 }
 

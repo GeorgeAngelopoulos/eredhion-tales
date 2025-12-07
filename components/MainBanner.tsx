@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { UIMainFont } from "@/app/fonts";
 import { TalesFont } from "@/app/fonts";
+import data from "@/public/data/data.json"
 
 export default function MainBanner() {
   const [isWide, setIsWide] = useState(false);
@@ -12,12 +13,6 @@ export default function MainBanner() {
     { text: "Explore", href: "/explore" },
     { text: "About", href: "/about" },
   ];
-
-const versionText = (
-  <>
-    "Eclipse" <br /> v26.13.45
-  </>
-);
 
   // Track screen width
   useEffect(() => {
@@ -54,7 +49,7 @@ const versionText = (
         </div>
 
         {/* RIGHT: Version */}
-        <div className="text-white text-[1.5rem]">{versionText}</div>
+        <div className="text-white text-[1.5rem]">{data.versionName} <br/> {data.versionNumber}</div>
       </div>
     </header>
   );

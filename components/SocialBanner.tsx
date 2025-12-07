@@ -36,9 +36,7 @@ export default function SocialBanner() {
   ];
 
   return (
-    <div
-      id="SBNN"
-      className="
+    <div className="
         relative bottom-0 left-0 w-full h-[18vh]
         flex items-center justify-center flex-shrink-0
         bg-black z-[1] box-border

@@ -1,22 +1,43 @@
 import Image from "next/image";
-import { Background, HomeLogo } from "@/components/Misc";
+import { Background, HomeLogo, HomeSection } from "@/components/Misc";
 import { HomeHeadline } from "@/components/Writings";
+import { MainContainer } from "@/components/Containers";
+import { VersionControl } from "@/components/VersionControl";
+import { PublishCard } from "@/components/PublishCard";
+import data from "@/public/data/data.json"
 
 export default function HomePage() {
+
+  const { articles } = data;
+  const newestArticle =  [...articles].sort(
+    (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
+  )[0];
+
   return (
     <>
       <Background imageUrl="/page_artworks/ERDTL_Raaina_Plains.png"/>
       
-      <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <MainContainer>
 
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-      <HomeLogo/>
-      <HomeHeadline> A New World awaits...</HomeHeadline>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-       
-      </footer>
-      </div>
+        <HomeLogo/>
+        <HomeHeadline> A New World awaits...</HomeHeadline>
+        <HomeSection imageUrl="/page_icons/et_new.svg"/>
+        <PublishCard
+          title={newestArticle.title}
+          subtitle={newestArticle.subtitle}
+          category={newestArticle.category}
+          backgroundPath={newestArticle.backgroundPath}
+          slug={newestArticle.slug}
+        />
+        <VersionControl/>
+
+      </MainContainer>
     </>
   );
 }
+
+function parseDate(d: string) {
+  const [day, month, year] = d.split("/").map(Number);
+  return new Date(year, month - 1, day);
+}
+
