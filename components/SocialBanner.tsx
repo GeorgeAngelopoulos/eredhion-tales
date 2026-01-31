@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
 import { UIMainFont } from "@/app/fonts";
 
 export default function SocialBanner() {
@@ -39,7 +40,8 @@ export default function SocialBanner() {
     <div className="
         relative bottom-0 left-0 w-full h-[18vh]
         flex items-center justify-center flex-shrink-0
-        bg-black z-[1] box-border
+        bg-color-var
+        z-[1] box-border
         gap-[clamp(0.6em,2.5vw,1.5em)]
         py-[clamp(0.5em,2vw,1em)]
         m-0
@@ -59,7 +61,7 @@ export default function SocialBanner() {
           <span className={`
               ${UIMainFont.className}
               italic text-white
-              text-[clamp(1.2em,2.5vw,2em)]
+              text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl
               mr-[clamp(0.5em,2vw,1em)]`}
           >
           Follow George Angelopoulos Creative
@@ -89,9 +91,8 @@ export default function SocialBanner() {
             alt={social.alt}
             className="
               w-[clamp(2em,3.0vw,3.2em)]
-              w-[clamp(2em,3.0vw,3.2em)]
-              object-contain
-            "
+              h-[clamp(2em,3.0vw,3.2em)]
+              object-contain"
           />
         </a>
       ))}

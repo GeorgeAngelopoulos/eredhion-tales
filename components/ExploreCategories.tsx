@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { UIMainFont } from "@/app/fonts";
 
 export type FilterProps = {
@@ -22,18 +22,23 @@ export default function ExploreCategories() {
             if (activeFilter === "everything" || card.classList.contains(`card-${activeFilter}`)) {
                 
                 // First remove hidden state
-                card.classList.remove("hidden");
+                card.classList.remove("is-hidden");
+                card.classList.remove("is-removed");
+                card.classList.remove("slide-in-right")
 
                 // Restart animation cleanly:
-                card.classList.remove("show");      
-                void card.offsetWidth;              
-                card.classList.add("show");      
+                card.classList.remove("is-shown");      
+                void card.offsetWidth;
+                card.classList.add("slide-in-right");              
+                card.classList.add("is-shown");      
             }
 
             // Card should be hidden
             else {
-                card.classList.remove("show");
-                card.classList.add("hidden");
+                card.classList.remove("is-shown");
+                card.classList.remove("slide-in-right");
+                card.classList.add("is-hidden");
+                card.classList.add("is-removed");
             }
         });
     }, [activeFilter]);
@@ -80,23 +85,21 @@ export function ExploreButton({ id, label, isActive, onClick }: FilterProps) {
             className={`
                 explore-button
                 filter-${id}
-                ${isActive ? "pressed" : ""}
-
+                ${isActive  ? "pressed" 
+                            : ""}
                 ${UIMainFont.className}
                 relative align-top
                 cursor-pointer border-none rounded-none
-                bg-[rgba(255,255,255,0)]
                 text-white
                 text-text-base md:text-base lg:text-md xl:text-lg 2xl:text-1xl
                 mr-0            
                 drop-shadow-[0_0_15px_rgba(0,0,0,0.7)]
                 transition-colors duration-300 ease-linear
                 py-[0.8rem] px-[1.5rem]
-                hover:bg-white/20 
-                active:bg-white/70
-            `}
+                hover:bg-white/20
+                active:bg-white/70`}
         >
-            {label}
+        {label}
         </a>
     );
 }

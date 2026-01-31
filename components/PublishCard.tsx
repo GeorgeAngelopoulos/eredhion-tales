@@ -1,8 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { UIMainFont } from "@/app/fonts";
-import { TalesFont } from "@/app/fonts";
-import "@/app/globals.css";
 import Link from "next/link";
 
 type PublishProps = {
@@ -13,7 +10,6 @@ type PublishProps = {
     slug?:     string;
 }
 
-// DONE
 export function PublishCard({ title, subtitle, category, backgroundPath, slug }: PublishProps) {
 
     return (
@@ -28,7 +24,6 @@ export function PublishCard({ title, subtitle, category, backgroundPath, slug }:
     );
 }
 
-// DONE
 export function Publish({ title, subtitle, category, backgroundPath, slug }: PublishProps) {
     return (
         <Link href={`/article/${slug}`}
@@ -42,10 +37,8 @@ export function Publish({ title, subtitle, category, backgroundPath, slug }: Pub
               rounded-none cursor-pointer
               shadow-[0_4px_12px_rgba(0,0,0,0.4)]
               overflow-hidden
-              transition-transform
-              transition-colors
-              duration-400
-              ease-linear
+              transition-transform transition-colors
+              duration-400 ease-linear
               hover:border-[goldenrod]
               hover:scale-[1.04]
               group ...`}
@@ -66,10 +59,12 @@ export function PublishBanner({ title, subtitle, category }: PublishProps) {
               ${UIMainFont.className} text-white
               absolute bottom-0 left-0
               flex flex-row items-center
-              w-full bg-[rgba(0,0,0,0.85)]
+              w-full 
+              bg-color-var
               p-[clamp(10px,2vw,20px)] 
               px-[clamp(12px,4vw,24px)]
-              border-t-[2px] border-t-[rgba(255,255,255,0.2)]
+              border-t-var 
+              border-color-var
               gap-[clamp(10px, 3vw, 20px)]
               z-[2]
 
@@ -126,7 +121,7 @@ export function PublishTitle({ title }: PublishProps) {
 }
 
 export function PublishSubtitle({ subtitle }: PublishProps) {
-    return (<p className=" text-sm md:text-base lg:text-lg xl:text-xl opacity-[0.85]"> {subtitle} </p>);
+    return (<p className=" text-sm md:text-base lg:text-lg xl:text-xl opacity-70"> {subtitle} </p>);
 }
 
 

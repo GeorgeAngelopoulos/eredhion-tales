@@ -41,3 +41,6 @@ function parseDate(d: string) {
   return new Date(year, month - 1, day);
 }
 
+export const metadata = {
+  title: "Homepage - Eredhion Tales",
+};

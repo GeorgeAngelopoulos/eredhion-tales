@@ -1,8 +1,6 @@
 "use client";
-import "@/app/globals.css";
-import React, { useEffect, useState } from "react";
+
 import { UIMainFont } from "@/app/fonts";
-import { TalesFont } from "@/app/fonts";
 import Link from "next/link";
 
 type ExploreProps = {
@@ -27,15 +25,11 @@ export default function ExploreCard({ title, subtitle, date, category, label, ba
         className={`
             card card-${category}
             flex flex-col justify-between items-start relative     
-            border-2 border-black bg-[rgba(255,255,255,0.2)] 
-            w-[300px] 
-            h-[clamp(325px,80vw,400px)] 
-            m-[15px] p-[5px] 
+            border-2 border-black
+            w-[300px] aspect-[3/4]
+            m-[10px] p-[5px] 
             shadow-[0_4px_8px_rgba(0,0,0,0.1)]                
             filter drop-shadow-[0_0_25px_rgba(0,0,0,0.6)]
-            hover:scale-[1.04]
-            transition-transform
-            duration-200
             
             overflow-hidden transition-opacity duration-[900ms] ease-in-out opacity-100
             cursor-pointer ${rarity}`}
@@ -44,11 +38,29 @@ export default function ExploreCard({ title, subtitle, date, category, label, ba
             backgroundSize: "cover",
             backgroundPosition: "center",}}
         >
-           
+
+        <div
+        className="
+            et-shadow
+            absolute inset-0
+            bg-no-repeat bg-cover bg-center
+            opacity-0
+            pointer-events-none
+            transition-opacity duration-500
+            mix-blend-mode: multiply;
+        "
+        style={{
+            backgroundImage: "url(/page_icons/et_shadow.webp)",
+        }}
+        />  
+        <div className=" z-[2]">
         <CardCategory category={category} label={label}/>
         <CardDate date = {date}/>
+        </div>
+        <div className="relative z-[2] flex flex-col items-start gap-1">
         <CardTitle title = {title}/>
         <CardSubtitle subtitle = {subtitle}/>
+        </div>
         </Link>
     );
 }
@@ -69,12 +81,14 @@ export function CategoryIcon({ category }: ExploreProps) {
 }
 
 export function CategoryLabel({ label }: ExploreProps) {
-    return (<span className={`${UIMainFont.className} text-[18px] text-white mr-[6px]`}> {label}</span>);
+    return (
+        <span className={`${UIMainFont.className} text-lg text-white mr-[6px]`}> {label} </span>
+    );
 }
 
 export function CardCategory({ category, label }: ExploreProps) {
     return (
-        <div className="flex items-center bg-black/60 border border-black rounded-none w-fit mt-[5px] ml-[5px]">
+        <div className="flex items-center bg-black/60 border border-black rounded-none w-fit mt-card ml-card">
         <CategoryIcon category = {category}/>
         <CategoryLabel label = {label}/>
         </div>
@@ -82,14 +96,20 @@ export function CardCategory({ category, label }: ExploreProps) {
 }
 
 export function CardDate({ date }: ExploreProps) {
-    return (<span className={`${UIMainFont.className} text-[14px] text-white/70 text-left mt-[4px] ml-[8px]`}> {date}</span>);
+    return (
+        <span className={`${UIMainFont.className} text-sm text-white/70 text-left mt-card ml-card`}> {date} </span>
+    );
 }
 
 export function CardTitle({ title }: ExploreProps) {
-    return (<span className={`${UIMainFont.className} text-[24px] text-white w-[90%] text-left mt-auto ml-[5px] `}> {title}</span>);
+    return (
+        <span className={`${UIMainFont.className} text-2xl text-white w-full leading-tight text-left mx-auto ml-card `}> {title} </span>
+    );
 }
 
 export function CardSubtitle({ subtitle }: ExploreProps) {
-    return (<span className={`${UIMainFont.className} text-[18px] text-white/70 text-left ml-[5px] `}> {subtitle}</span>);
+    return (
+        <span className={`${UIMainFont.className} text-lg text-white/70 text-left w-full leading-snug ml-card `}> {subtitle} </span>
+    );
 }
 

@@ -5,12 +5,13 @@ import data from "@/public/data/data.json"
 type VersionProps = {
     title?:        string;
     label?:        string;
+
 }
 
 export function VersionControl() {
 
     const PatchMessages: Record<string, string> = {
-            NEW: "- Added new Article...",
+            NEW: "- Added new Article!",
             LORE: "- Added new Lore...",
             VISUAL: "- Added new Visuals...",
             REL: "- Revisited existing Lore...",
@@ -22,19 +23,19 @@ export function VersionControl() {
         <div className={`
             ${UIMainFont.className}
             flex flex-col flex-start
-            bg-[rgba(0,0,0,0.3)]
+            bg-black/30
             rounded-[10px]
             w-[95%] max-w-[1200px] h-auto
             text-white
-            gap-[1em]
+            gap-wr
             p-[20px]
-            mt-[5%]`}
+            mt-c`}
         >
         <VersionTitle/>
         {data.versionLog.map((patch, i) => (
 
             <div key={i}>
-            <EntryTitle label = {ArticleToLabel(patch.article, data)} title = {patch.article}/> 
+            <EntryTitle label = {ArticleToLabel(patch.article, data)} title = {patch.article}/>          
             {patch.changes.map((change, j) => (
                 <EntryLine key={j}> {PatchMessages[change]} </EntryLine>
             ))}
@@ -52,7 +53,7 @@ export function VersionTitle() {
             text-left underline
             decoration-3"
         >
-        What's new with "{data.versionName}" {data.versionNumber}:
+        What's new with "{data.versionName} {data.versionNumber}":
         </p>
     );
 }
@@ -72,5 +73,10 @@ export function EntryLine({ children }: { children: React.ReactNode }) {
 export function ArticleToLabel( title: string, data: { articles: { title: string; label: string }[] }): string | undefined{
     const found = data.articles.find(a => a.title === title);
     return found?.label;
+}
+
+export function ArticleToCategory( title: string, data: { articles: { title: string; category: string }[] }): string | undefined{
+    const found = data.articles.find(a => a.title === title);
+    return found?.category;
 }
 

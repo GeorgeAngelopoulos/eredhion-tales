@@ -15,18 +15,22 @@ export default function ExplorePage() {
       <ExploreCategories/>
       <CardContainer>
         {data.articles.map((article, index) => (
-                    <ExploreCard
-                      key={index}
-                      title={article.title}
-                      subtitle={article.subtitle}
-                      date={article.date}
-                      category={article.category}
-                      label={article.label}
-                      backgroundPath={article.backgroundPath}
-                      slug={article.slug}
-                    />
-                  ))}
+          <ExploreCard
+            key={index}
+            title={article.title}
+            subtitle={article.subtitle}
+            date={article.date}
+            category={article.category}
+            label={article.label}
+            backgroundPath={article.backgroundPath}
+            slug={article.slug}
+          />
+        ))}
       </CardContainer>
     </>
   );
 }
+
+export const metadata = {
+  title: "Explore the Archives - Eredhion Tales",
+};

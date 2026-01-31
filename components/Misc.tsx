@@ -1,9 +1,7 @@
 "use client";
-import React from "react";
 
 interface URLProps {imageUrl: string;}
 
-// DONE ***************************************************************************
 export function Background({ imageUrl }: URLProps) {
     return (
         <>
@@ -20,7 +18,6 @@ export function Background({ imageUrl }: URLProps) {
     );
 }
 
-// DONE ***************************************************************************
 export function HomeLogo() {
     return (
         <img
@@ -29,7 +26,6 @@ export function HomeLogo() {
           className="
             w-[clamp(250px,40%,800px)] 
             h-auto 
-            pt-[20vh] 
             object-contain block self-center 
             drop-shadow-[0_0_35px_rgba(0,0,0,0.9)]"
         />

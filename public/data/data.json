@@ -26,59 +26,41 @@
       "label": "Short Story",
       "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
       "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
+      "component": "KingdomOfTheEclipsePart1",
+      "lastUpdated": "Eclipse v26.0.3"
     },
     {
       "title": "Sunphire Medallion",
-      "subtitle": "",
-      "date": "2/5/2025",
-      "category": "world",
-      "label": "World",
+      "subtitle": "The Sword of Kings",
+      "date": "4/5/2025",
+      "category": "item",
+      "label": "Common Item",
       "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
-      "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
+      "slug": "sunphire-medallion",
+      "component": "SunphireMedallion",
+      "lastUpdated": "Eclipse v26.0.3"
     },
     {
-      "title": "Sunphire Medallion",
-      "subtitle": "",
-      "date": "2/5/2025",
-      "category": "short",
-      "label": "Short Story",
+      "title": "Sunwalker Swords",
+      "subtitle": "Nal'ered XII",
+      "date": "4/5/2025",
+      "category": "item",
+      "label": "Rare Item",
       "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
-      "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
+      "slug": "sunwalker-swords",
+      "component": "SunphireMedallion",
+      "lastUpdated": "Eclipse v26.0.3"
     },
     {
-      "title": "Sunphire Medallion",
-      "subtitle": "",
-      "date": "2/5/2025",
-      "category": "region",
-      "label": "Region",
+      "title": "Light Warrior Treatises",
+      "subtitle": "Nal'ered XII",
+      "date": "4/5/2025",
+      "category": "item",
+      "label": "Unique Item",
       "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
-      "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
-    },
-    {
-      "title": "Sunphire Medallion",
-      "subtitle": "",
-      "date": "2/5/2025",
-      "category": "US",
-      "label": "Structure",
-      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
-
-      "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
-    },
-    {
-      "title": "Sunphire Medallion",
-      "subtitle": "",
-      "date": "2/5/2025",
-      "category": "character",
-      "label": "Character",
-      "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
-      "slug": "kingdom-of-the-eclipse-part-1",
-      "component": "KingdomOfTheEclipsePart1"
+      "slug": "light-warrior-book",
+      "component": "SunphireMedallion",
+      "lastUpdated": "Eclipse v26.0.3"
     }
-
   ]
 }

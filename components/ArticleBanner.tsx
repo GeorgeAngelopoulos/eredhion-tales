@@ -5,75 +5,52 @@ import { UIMainFont } from "@/app/fonts";
 type ArticleProps = {
     title?:           string;
     subtitle?:        string;
-    date?:            string;
     backgroundPath?:  string;
+    lastUpdated?:     string;
 }
 
-export default function ArticleBanner({ title, subtitle, date, backgroundPath }: ArticleProps) {
+export default function ArticleBanner({ title, subtitle, backgroundPath, lastUpdated }: ArticleProps) {
 
     return (
-        <div className={`
-                ${UIMainFont.className}
-                text-white
-                flex flex-col justify-center
-                items-center text-center
-                w-full h-screen
-                relative z-[200]
-                pointer-events-auto
-                opacity-100
-
-                bg-cover
-                bg-center
-                bg-no-repeat
-                
-                article-banner
-                transition-opacity transition-transform
-                duration-1000 ease-in-out`}
-            style={{backgroundImage: `url(${backgroundPath})`,}}
+        <div
+        className={`
+            top-article-offset left-0
+            ${UIMainFont.className}
+            text-white
+            fixed w-full h-screen 
+            flex flex-col justify-center items-center text-center
+            relative z-[200]
+            pointer-events-auto
+            bg-cover bg-center bg-no-repeat`}
+        style={{ backgroundImage: `url(${backgroundPath})` }}
         >
         <ArticleTitle title={title}/>
         <ArticleSubtitle subtitle={subtitle}/>
-        <ArticleDate date={date}/>
+        <ArticleLastUpdated lastUpdated={lastUpdated}/>
         </div>
     );
 }
 
 export function ArticleTitle({ title }: ArticleProps) {
     return (
-        <div className="text-base md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl m-0"> {title}</div>
+        <div className="text-1xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl m-0"> {title}</div>
     );
 }
 
 export function ArticleSubtitle({ subtitle }: ArticleProps) {
     return (
-        <div className="text-base md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl opacity-80 mt-2"> {subtitle}</div>
+        <div className="text-base md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl opacity-80 mt-4"> {subtitle}</div>
     );
 }
 
-export function ArticleDate({ date }: ArticleProps) {
+export function ArticleLastUpdated({ lastUpdated }: ArticleProps) {
     return (
-        <div className="text-base md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl opacity-80 mt-2"> {date}</div>
+        <div className="
+                absolute bottom-6 right-6 text-right 
+                text-sm md:text-1xl lg:text-1xl xl:text-2xl 2xl:text-2xl 
+                opacity-60 mt-2"
+        > 
+        Last Updated: {lastUpdated}
+        </div>
     );
 }
-
-// .article-banner {
-//     width: 100%;
-//     height: 100vh;
-
-//     background-size: cover;
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     text-align: center;
-//     transition: opacity 1.0s ease, transform 1.0s ease;
-//     opacity: 1;
-//     pointer-events: auto;
-//     position: relative;
-//     z-index: 200; 
-
-// }
-
-/* Shadow gradient overlay */

@@ -1,23 +1,39 @@
 "use client";
-
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ScrollHandler() {
+  const lastState = useRef<"top" | "scrolled">("top");
+
   useEffect(() => {
     const banner = document.getElementById("ABN");
-    const container = document.getElementById("AC");
+    const content = document.getElementById("AC");
+    if (!banner || !content) return;
 
-    if (!banner || !container) return;
+    const triggerPoint = 8;
 
     const onScroll = () => {
-      const triggerPoint = window.innerHeight * 0.001;
+      const scrolled = window.scrollY > triggerPoint;
 
-      if (window.scrollY > triggerPoint) {
-        banner.classList.add("hidden");
-        container.classList.add("visible");
-      } else {
-        banner.classList.remove("hidden");
-        container.classList.remove("visible");
+      // ↓ Scroll DOWN past trigger
+      if (scrolled && lastState.current === "top") {
+        lastState.current = "scrolled";
+
+        banner.classList.remove("slide-in-top", "is-shown");
+        banner.classList.add("slide-out-top", "is-hidden");
+
+        content.classList.remove("slide-out-bot", "is-hidden");
+        content.classList.add("slide-in-bot", "is-shown");
+      }
+
+      // ↑ Scroll UP above trigger
+      if (!scrolled && lastState.current === "scrolled") {
+        lastState.current = "top";
+
+        banner.classList.remove("slide-out-top", "is-hidden");
+        banner.classList.add("slide-in-top", "is-shown");
+
+        content.classList.remove("slide-in-bot", "is-shown");
+        content.classList.add("slide-out-bot", "is-hidden");
       }
     };
 
@@ -25,5 +41,5 @@ export default function ScrollHandler() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return null; // This component only runs logic
+  return null;
 }
