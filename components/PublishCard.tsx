@@ -93,6 +93,7 @@ export function PublishCategory({ category }: PublishProps) {
               items-center shrink-0`}
         >
         <img
+          loading="lazy"
           src={`/page_icons/${category}_icon.svg`}
           className="
             w-[65%] h-[65%]

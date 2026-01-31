@@ -73,6 +73,7 @@ export function CategoryIcon({ category }: ExploreProps) {
             mr-[8px] category-${category}`}
         >
         <img
+        loading="lazy"
         src={`/page_icons/${category}_icon.svg`}
         className="w-[28px] h-[28px] object-contain"
         />

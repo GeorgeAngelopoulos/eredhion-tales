@@ -69,30 +69,3 @@ export function ArticleContainer ( { children }: { children: React.ReactNode }) 
     );
 }
 
-
-// .article-container {
-
-//     font-size: clamp(1.75em, 2.5vw, 2.5em);                     --------
-//     padding-bottom: 100px;
-//     top: -40vh;
-//     width: 60%;
-//     gap: 1em;
-
-//     transform: translateY(30px);
-//     transition: opacity 1.2s ease, transform 1.2s ease;
-//     color: rgb(255, 255, 255);                                --------
-//     font-family: 'Tangerine', serif;                            --------
-//     font-weight: bold;                                          --------
-//     display: flex;                                              --------
-//     flex-wrap: wrap;                                            --------
-//     justify-content: center;                                    --------
-//     align-items: top;                                           --------
-//     margin: 0 auto;                                             --------
-//     position: relative;                                         --------
-//     z-index: 1;                                                 --------
-// }
-  
-// .article-container.visible {
-//     opacity: 1;
-//     transform: translateY(0);
-// }

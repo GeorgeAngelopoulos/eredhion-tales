@@ -50,6 +50,7 @@ export default function SocialBanner() {
       {isWide && (
         <>
           <img
+            loading="lazy"
             src="/page_icons/gangelo_logo.svg"
             alt="Logo"
             className="
@@ -87,6 +88,7 @@ export default function SocialBanner() {
           "
         >
           <img
+            loading="lazy"
             src={social.img}
             alt={social.alt}
             className="

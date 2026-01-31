@@ -21,6 +21,7 @@ export function Background({ imageUrl }: URLProps) {
 export function HomeLogo() {
     return (
         <img
+          loading="lazy"
           src="/page_icons/et_logo.svg"
           alt="HomeLogo"
           className="
@@ -36,6 +37,7 @@ export function HomeLogo() {
 export function HomeSection({ imageUrl }: URLProps) {
     return (
         <img
+          loading="lazy"
           src={imageUrl}
           className="
             object-contain
@@ -50,6 +52,7 @@ export function HomeSection({ imageUrl }: URLProps) {
 export function Artwork ({ imageUrl }: URLProps) {
     return (
         <img
+          loading="lazy"
           src={imageUrl}
           className="
             object-contain block
