@@ -138,8 +138,6 @@ export function ResultIcon({ category }: SearchResultItem) {
             category-${category}`}
         >
         <img
-        loading="lazy"
-        loading="lazy"
         src={`/page_icons/${category}_icon.svg`}
         className="w-[65%] h-[65%] object-contain"
         />
