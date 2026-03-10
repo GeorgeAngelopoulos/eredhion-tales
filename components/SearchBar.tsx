@@ -30,7 +30,8 @@ export function SearchBar({ query, setQuery, onFocus }: Props) {
                 ${UIMainFont.className}
                 text-white
                 text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-md
-                overflow-x-auto overflow-y-hidden
+                overflow-x-hidden  overflow-y-hidden
+                min-w-0
                 border-none rounded-[0.6em]
                 bg-white/20
                 w-[clamp(10em,30vw,25em)] max-w-full
@@ -57,9 +58,8 @@ export function SearchBanner({ results, typed, onSelect }: SearchBannerProps) {
         <div className={`
                 ${UIMainFont.className}
                 text-white
-                absolute left-[50%]
+                absolute left-0 right-0 mx-auto
                 top-banner-offset
-                -translate-x-1/2
                 ${results.length >= 0 && typed
                     ? "opacity-100 pointer-events-auto" 
                     : "opacity-0 pointer-events-none"}

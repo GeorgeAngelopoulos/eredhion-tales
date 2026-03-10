@@ -29,7 +29,7 @@ export default function ExploreCard({ title, subtitle, date, category, label, ba
             w-[300px] aspect-[3/4]
             m-[10px] p-[5px] 
             shadow-[0_4px_8px_rgba(0,0,0,0.1)]                
-            filter drop-shadow-[0_0_25px_rgba(0,0,0,0.6)]
+            filter shadow-[0_0_25px_rgba(0,0,0,0.6)]
             
             overflow-hidden transition-opacity duration-[900ms] ease-in-out opacity-100
             cursor-pointer ${rarity}`}

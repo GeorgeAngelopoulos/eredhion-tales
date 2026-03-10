@@ -12,7 +12,7 @@ export function Background({ imageUrl }: URLProps) {
         />
         <div className="
             fixed inset-0 -z-10 pointer-events-none 
-            bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.5)_10%,rgba(0,0,0,0.9)_100%)]"
+            bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_10%,rgba(0,0,0,0.6)_100%)]"
         />
         </>
     );

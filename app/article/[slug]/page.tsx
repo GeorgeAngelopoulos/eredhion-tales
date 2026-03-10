@@ -21,7 +21,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <>
         <ScrollHandler/>
 
-        <Background imageUrl={backgroundPath}/>
+        <Background imageUrl="/page_artworks/BG_article.v1.webp"/>
         <div id="ABN" className="articleBanner is-shown"> 
             <ArticleBanner title={title} subtitle={subtitle} backgroundPath={backgroundPath} lastUpdated={lastUpdated}/>
         </div>

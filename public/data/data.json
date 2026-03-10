@@ -20,10 +20,10 @@
   "articles": [
     {
       "title": "Kingdom of the Eclipse: Part I",
-      "subtitle": "Nal'ered XII - Ser'aina",
+      "subtitle": "168 BC",
       "date": "2/5/2025",
-      "category": "short",
-      "label": "Short Story",
+      "category": "chronicle",
+      "label": "Chronicle",
       "backgroundPath": "/page_artworks/ERDTL_Raaina_Plains.png",
       "slug": "kingdom-of-the-eclipse-part-1",
       "component": "KingdomOfTheEclipsePart1",

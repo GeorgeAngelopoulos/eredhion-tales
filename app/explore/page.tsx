@@ -11,6 +11,7 @@ export default function ExplorePage() {
   return (
     <>
       <Background imageUrl="/page_artworks/ERDTL_Raaina_Plains.png"/>
+      
       <MainPageHeadline> Explore the Archives </MainPageHeadline>
       <ExploreCategories/>
       <CardContainer>

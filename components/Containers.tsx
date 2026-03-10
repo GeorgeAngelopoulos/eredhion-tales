@@ -42,7 +42,7 @@ export function CardContainer({ children }: { children: React.ReactNode }) {
         <div className={`
                 flex flex-wrap 
                 items-start justify-center
-                w-[100%] h-[90%] min-h-[30vw]`}
+                w-full overflow-x-hidden`}
         >
         {children}
         </div>
@@ -53,7 +53,7 @@ export function ArticleContainer ( { children }: { children: React.ReactNode }) 
     return (
         <div className={`
                 ${TalesFont.className}
-                text-white font-bold
+                text-color-AT ink-text
                 text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl
                 w-[65%]
                 gap-wr 

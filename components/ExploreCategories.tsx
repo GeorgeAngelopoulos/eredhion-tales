@@ -45,17 +45,18 @@ export default function ExploreCategories() {
 
     const filters = [
         { id: "everything", label: "Everything" },
-        { id: "world", label: "Worlds" },
-        { id: "nation", label: "Nations" },
-        { id: "faction", label: "Factions" },
-        { id: "tradition", label: "Traditions" },
-        { id: "region", label: "Regions" },
-        { id: "US", label: "Units & Structures" },
-        { id: "race", label: "Races" },
-        { id: "short", label: "Short Stories" },
-        { id: "item", label: "Items" },
-        { id: "creature", label: "Creatures" },
-        { id: "character", label: "Characters" }
+        { id: "world",      label: "Worlds" },
+        { id: "region",     label: "Regions" },
+        { id: "nation",     label: "Nations" },
+        { id: "faction",    label: "Factions" },
+        { id: "US",         label: "Units & Structures" },
+        { id: "tradition",  label: "Traditions" },
+        { id: "chronicle",  label: "Chronicles" },
+        { id: "short",      label: "Short Stories" },
+        { id: "race",       label: "Races" },
+        { id: "creature",   label: "Creatures" },
+        { id: "character",  label: "Characters" },
+        { id: "item",       label: "Items" }
     ];
 
     return (
@@ -85,13 +86,12 @@ export function ExploreButton({ id, label, isActive, onClick }: FilterProps) {
             className={`
                 explore-button
                 filter-${id}
-                ${isActive  ? "pressed" 
-                            : ""}
+                ${isActive  ? "pressed" : ""}
                 ${UIMainFont.className}
                 relative align-top
                 cursor-pointer border-none rounded-none
                 text-white
-                text-text-base md:text-base lg:text-md xl:text-lg 2xl:text-1xl
+                text-sm md:text-sm lg:text-sm xl:text-lg 2xl:text-lg
                 mr-0            
                 drop-shadow-[0_0_15px_rgba(0,0,0,0.7)]
                 transition-colors duration-300 ease-linear

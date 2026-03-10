@@ -31,22 +31,23 @@
   --everything-color: rgb(0, 0, 0);
   --world-color:      rgb(156, 95, 44);
   --nation-color:     rgb(125, 208, 233);
+  --region-color:     rgb(30, 126, 54);
   --faction-color:    rgb(199, 82, 82);
-  --tradition-color:  rgb(224, 208, 64);
-  --region-color:     rgb(64, 148, 85);
   --US-color:         rgb(164, 144, 172);
-  --race-color:       rgb(137, 94, 192);
+  --tradition-color:  rgb(224, 208, 64);
+  --chronicle-color:  rgb(122, 107, 81);
   --short-color:      rgb(241, 241, 241);
-  --item-color:       rgb(224, 167, 42);
+  --race-color:       rgb(137, 94, 192);
   --creature-color:   rgb(184, 34, 210);
   --character-color:  rgb(0, 92, 153);
+  --item-color:       rgb(224, 167, 42);
 
   --common-color:     rgb(255, 255, 255);
   --rare-color:       rgb(34, 103, 167);
   --unique-color:     rgb(202, 99, 39);
 
-  --common-glow:      rgba(255, 255, 255, 0.7); 
-  --rare-glow:        rgba(34, 103, 167, 0.7);
+  --common-glow:      rgba(255, 255, 255, 0.5); 
+  --rare-glow:        rgba(34, 103, 167, 0.6);
   --unique-glow:      rgba(202, 99, 39, 0.7);
 }
 
@@ -68,9 +69,9 @@ body {
 .rare   { border: 3px solid var(--rare-color); }
 .unique { border: 3px solid var(--unique-color); }
 
-.common:hover { box-shadow: 0 0 4px 2px var(--common-glow);}
-.rare:hover   { box-shadow: 0 0 8px 6px var(--rare-glow);}
-.unique:hover { box-shadow: 0 0 10px 8px var(--unique-glow);}
+.common:hover { box-shadow: 0 0 5px 4px var(--common-glow);}
+.rare:hover   { box-shadow: 0 0 5px 4px var(--rare-glow);}
+.unique:hover { box-shadow: 0 0 5px 4px var(--unique-glow);}
 
 .common, .rare, .unique { transition: box-shadow 0.5s ease; }
 .card:hover:not(.common):not(.rare):not(.unique) { border-color: goldenrod; }
@@ -126,6 +127,19 @@ body {
     --pos-X-hidden: 100px;
   }
 
+  .verticalMenu {
+    transform: translateY(-90%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  }
+
+  .verticalMenu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .is-shown {
     opacity: 1;
     pointer-events: auto;
@@ -142,6 +156,11 @@ body {
 
   .is-removed {
     display: none;
+  }
+
+  .ink-text {
+    text-shadow:
+    0.2px 0.2px 0 rgba(0, 0, 0, 0.5);
   }
 
   .card:hover .et-shadow {
@@ -167,16 +186,17 @@ body {
   /* Apply the category background color to the stripe and icons */
   .explore-button.pressed.filter-everything::after,.category-everything   { background-color: var(--everything-color); }
   .explore-button.pressed.filter-world::after,     .category-world        { background-color: var(--world-color); }
+  .explore-button.pressed.filter-region::after,    .category-region       { background-color: var(--region-color); }
   .explore-button.pressed.filter-nation::after,    .category-nation       { background-color: var(--nation-color); }
   .explore-button.pressed.filter-faction::after,   .category-faction      { background-color: var(--faction-color); }
-  .explore-button.pressed.filter-tradition::after, .category-tradition    { background-color: var(--tradition-color); }
-  .explore-button.pressed.filter-region::after,    .category-region       { background-color: var(--region-color); }
   .explore-button.pressed.filter-US::after,        .category-US           { background-color: var(--US-color); }
-  .explore-button.pressed.filter-race::after,      .category-race         { background-color: var(--race-color); }
+  .explore-button.pressed.filter-tradition::after, .category-tradition    { background-color: var(--tradition-color); }
+  .explore-button.pressed.filter-chronicle::after, .category-chronicle    { background-color: var(--chronicle-color); }
   .explore-button.pressed.filter-short::after,     .category-short        { background-color: var(--short-color); }
-  .explore-button.pressed.filter-item::after,      .category-item         { background-color: var(--item-color); }
+  .explore-button.pressed.filter-race::after,      .category-race         { background-color: var(--race-color); }
   .explore-button.pressed.filter-creature::after,  .category-creature     { background-color: var(--creature-color); }
   .explore-button.pressed.filter-character::after, .category-character    { background-color: var(--character-color); }
+  .explore-button.pressed.filter-item::after,      .category-item         { background-color: var(--item-color); }
 
   @keyframes stripeFadeIn {
     from {

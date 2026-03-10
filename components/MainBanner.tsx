@@ -18,7 +18,6 @@ type MainButtonProps = {
 type VerticalMenuProps = {
   navLinks: NavLink[];
   isOpen?: boolean;
-  manualToggle: RefObject<boolean>;
 }
 
 type MenuProps = {
@@ -39,7 +38,6 @@ export default function MainBanner() {
     const [results, setResults] = useState<any[]>([]);
     const [typed, setTyped] = useState<boolean>(false);
 
-    const manualToggle = useRef(false);
     const bannerRef = useRef<HTMLDivElement | null>(null);
 
     const resetSearch = () => {
@@ -99,12 +97,12 @@ export default function MainBanner() {
             border-b-var 
             border-color-var`}
         >
-          <div className="flex items-center justify-between h-banner px-[1.5vh]">
+          <div className="flex items-center justify-between h-banner px-4">
 
             {/* LEFT SIDE */}
             <div className="flex items-center gap-3">
               {isWide ? (<HorizontalMenu navLinks={navLinks}/>)
-                      : (<MainButton onClick= {() => { manualToggle.current = true; setMenuOpen((v) => !v);}}> ☰ </MainButton>)}
+                      : (<MainButton onClick= {() => {setMenuOpen((v) => !v);}}> ☰ </MainButton>)}
 
               <SearchBar query={query} setQuery={setQuery} onFocus={resetSearch}/>
               <SearchHandler query={query} setResults={setResults}/>
@@ -117,7 +115,7 @@ export default function MainBanner() {
           </div>
         </header>
 
-        {!isWide && (<VerticalMenu isOpen = {menuOpen} navLinks={navLinks} manualToggle={manualToggle}/>)}
+        {!isWide && (<VerticalMenu navLinks={navLinks} isOpen = {menuOpen}/>)}
       </>
     );   
 }
@@ -134,54 +132,38 @@ export function HorizontalMenu({ navLinks }: MenuProps) {
     );
 }
 
-export function VerticalMenu({ navLinks, isOpen, manualToggle }: VerticalMenuProps) {
-
-    const open = isOpen ?? false;
-    const prevIsOpen = useRef<boolean | null>(null);
-
-    // Track only manual clicks
-    useEffect(() => {
-      if (!manualToggle.current) return; // ignore automatic re-renders
-      prevIsOpen.current = open;       // update previous state
-      manualToggle.current = false;      // reset after handling
-    }, [open, manualToggle]);
-
-    const shouldAnimate = prevIsOpen.current !== null;
-    const isOpening = prevIsOpen.current === false && open;
-    const isClosing = prevIsOpen.current === true && !open;
-
-    return (
-      <nav 
-        className={`
-          ${UIMainFont.className}
-          fixed left-0
-          top-banner-offset
-          text-white
-          bg-color-var
-          border-var
-          border-color-var
-          shadow-[0_4px_10px_rgba(0,0,0,0.3)]
-          px-[30px] py-[15px]
-          z-[999] overflow-y-auto        
-          
-        ${shouldAnimate
-          ? isOpening
-            ? "[animation:slideFromTopIn_0.7s_ease-in-out_forwards] pointer-events-auto"
-            : isClosing
-              ? "[animation:slideFromTopOut_0.7s_ease-in-out_forwards] pointer-events-none"
-              : ""
-          : open
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"}`}
-      >
-        <div className="flex flex-col gap-2 items-center">
-            <BannerLogo/>
-            {navLinks.map((link, i) => (
-              <MainButton key={i} onClick={() => (window.location.href = link.href)} children={link.text}/>
-            ))}
-        </div>
-      </nav>
-    );
+export function VerticalMenu({ navLinks, isOpen }: VerticalMenuProps) {
+  return (
+    <nav
+      className={`
+        verticalMenu
+        ${isOpen ? "open" : ""}
+        ${UIMainFont.className}
+        fixed left-0
+        top-banner-offset
+        z-[999]
+        px-[30px] py-[15px]
+        text-white
+        bg-color-var
+        border-var
+        border-color-var
+        shadow-[0_4px_10px_rgba(0,0,0,0.3)]
+        overflow-y-auto
+      `}
+    >
+      <div className="flex flex-col gap-2 items-center">
+        <BannerLogo />
+        {navLinks.map((link, i) => (
+          <MainButton
+            key={i}
+            onClick={() => (window.location.href = link.href)}
+          >
+            {link.text}
+          </MainButton>
+        ))}
+      </div>
+    </nav>
+  );
 }
 
 export function MainButton({ onClick, children }: MainButtonProps) {

@@ -12,7 +12,7 @@ export default function AboutPage() {
         <MainPageHeadline> About Eredhion Tales </MainPageHeadline>
         <span>
           Eredhion Tales is a long-standing passion project created by George Angelopoulos. 
-          Its earliest roots stretch back to my high school days...born from my imagination and a few close friends. 
+          Its earliest roots stretch back to the boring summer breaks of high school, when doodles of what would become Haleth took shape. 
           Since 2020, I’ve been dedicated to building this world from the ground up, crafting its lore, history, and mythos as a foundation for my digital art journey.
         </span>
         <span>
